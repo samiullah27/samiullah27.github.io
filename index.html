@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Samiullah Arshad | Data Engineer Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Samiullah Arshad - Data Engineer specializing in ETL/ELT pipelines, AWS/Azure data platforms, and BI solutions."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="top-nav">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="hero-content">
+        <div class="hero-top">
+          <img
+            class="profile-photo"
+            src="assets/images/profile.png"
+            alt="Portrait of Samiullah Arshad"
+          />
+          <div>
+            <p class="kicker">Data Engineer</p>
+            <h1>Samiullah Arshad</h1>
+          </div>
+        </div>
+        <p class="subtitle">
+          Building scalable data platforms, cloud &amp; on-premise ETL/ELT
+          pipelines, and BI solutions on AWS &amp; Azure.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#projects">View Real-World Projects</a>
+          <a
+            class="btn"
+            href="https://www.linkedin.com/in/samiullah-arshad-86a14a1a2"
+            target="_blank"
+            rel="noreferrer"
+            >Linkedin</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="about" class="section">
+        <h2>Introduction</h2>
+        <p>
+          Data Engineer building scalable AWS &amp; Azure data platforms —
+          turning messy, high-volume data into reliable pipelines and insights
+          that teams can trust. Specialized in ETL/ELT, Medallion
+          Architecture, and workflow orchestration with Python, SQL, and
+          Apache Airflow.
+        </p>
+      </section>
+
+      <section id="experience" class="section">
+        <h2>Experience</h2>
+        <div class="timeline">
+          <article class="timeline-item">
+            <h3>Data Engineer — Orcion Systems</h3>
+            <p class="time">Feb 2026 – Present | Lahore, Pakistan</p>
+            <ul>
+              <li>
+                Architecting scalable AWS-based ETL/ELT pipelines for a
+                multi-tenant platform.
+              </li>
+              <li>
+                Operating Medallion architecture workflows for ingestion,
+                validation, and transformation.
+              </li>
+              <li>
+                Enabling validated datasets for QuickSight reporting and data
+                quality assurance.
+              </li>
+            </ul>
+          </article>
+          <article class="timeline-item">
+            <h3>Data Engineer — Expertflow</h3>
+            <p class="time">Nov 2024 – Jan 2026 | Pakistan</p>
+            <ul>
+              <li>
+                Built scalable ETL pipelines on in-house data platform using
+                Airflow, DBT, and Alembic.
+              </li>
+              <li>
+                Added platform features to onboard multiple internal product
+                teams.
+              </li>
+            </ul>
+          </article>
+          <article class="timeline-item">
+            <h3>Associate Data Engineer — DOT LABS</h3>
+            <p class="time">Nov 2023 – Nov 2024 | Lahore, Pakistan</p>
+            <ul>
+              <li>
+                Delivered cloud-based ETL and BI solutions on AWS and Azure.
+              </li>
+              <li>
+                Led project delivery, stakeholder communication, and team
+                mentorship.
+              </li>
+            </ul>
+          </article>
+          <article class="timeline-item">
+            <h3>Research Associate — LUMS Energy Institute</h3>
+            <p class="time">Feb 2022 – Jan 2023 | Lahore, Pakistan</p>
+            <ul>
+              <li>
+                Contributed to energy monitoring and control applications using R
+                and R Shiny for applied research workflows.
+              </li>
+              <li>
+                Supported research delivery with code review, debugging, and
+                data-driven reporting in a respected academic environment.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="section-head">
+          <h2>Featured Real-World Projects</h2>
+          <p>
+            Use filters to explore platform engineering, cloud ETL, BI, and
+            automation work.
+          </p>
+        </div>
+
+        <div class="filters" role="tablist" aria-label="Project categories">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="platform">Platform</button>
+          <button class="filter-btn" data-filter="aws">AWS</button>
+          <button class="filter-btn" data-filter="azure">Azure</button>
+          <button class="filter-btn" data-filter="automation">
+            Automation
+          </button>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card" data-tags="platform">
+            <h3>Data Platform (On-Prem)</h3>
+            <p class="stack">
+              Apache Airflow, Docker, Kubernetes, Python, SQL, DBT, Alembic
+            </p>
+            <p>
+              Designed and scaled a medallion-architecture platform integrating
+              structured and semi-structured sources with reliable batch
+              orchestration.
+            </p>
+            <div class="project-subsection">
+              <h4 class="project-subtitle">Impact</h4>
+              <ul>
+                <li>
+                  Unified MySQL, MSSQL, PostgreSQL, MongoDB, and API data
+                  pipelines.
+                </li>
+                <li>
+                  Managed schema evolution through version-controlled migrations.
+                </li>
+                <li>
+                  Containerized workflows and deployed on Kubernetes for
+                  enterprise reliability.
+                </li>
+              </ul>
+            </div>
+            <figure class="diagram-card project-subsection">
+              <h4 class="project-subtitle">Architecture Diagram</h4>
+              <img
+                src="assets/diagrams/data-platform-onprem.png"
+                alt="Architecture diagram for Data Platform On-Prem using Airflow and Kubernetes"
+                loading="lazy"
+              />
+              <figcaption>Data Platform (On-Prem) Architecture</figcaption>
+            </figure>
+          </article>
+
+          <article class="project-card" data-tags="platform aws">
+            <h3>DataExtend (DEX) — Multi-Tenant AWS Data Platform</h3>
+            <p class="stack">AWS Batch, AWS Glue, Apache Spark, QuickSight, Python, SQL</p>
+            <p>
+              Built a multi-tenant AWS data platform for secure ingestion,
+              large-scale processing, and reliable client-specific data
+              snapshots.
+            </p>
+            <div class="project-subsection">
+              <h4 class="project-subtitle">Impact</h4>
+              <ul>
+                <li>
+                  Ingested data from multiple sources through AWS Batch and
+                  processed large-scale datasets with AWS Glue and Spark.
+                </li>
+                <li>
+                  Delivered dependable data snapshots to dedicated client
+                  environments with continuous monitoring.
+                </li>
+                <li>
+                  Used Amazon QuickSight dashboards to track data quality and
+                  workflow health for rapid troubleshooting.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card" data-tags="aws">
+            <h3>CRM ETL & Warehouse Solution</h3>
+            <p class="stack">Flask, Airbyte OSS, AWS EC2, S3, Glue, Athena</p>
+            <p>
+              Built a multi-user HubSpot-to-AWS ETL system with OAuth-based
+              extraction, user-isolated data lake storage, and query-ready
+              warehousing.
+            </p>
+            <div class="project-subsection">
+              <h4 class="project-subtitle">Impact</h4>
+              <ul>
+                <li>Used OAuth 2.0 to connect multiple HubSpot tenants.</li>
+                <li>
+                  Automated connector setup in Airbyte per user credentials and
+                  scopes.
+                </li>
+                <li>
+                  Transformed S3 parquet datasets with Glue and queried in
+                  Athena.
+                </li>
+              </ul>
+            </div>
+            <figure class="diagram-card project-subsection">
+              <h4 class="project-subtitle">Architecture Diagram</h4>
+              <img
+                src="assets/diagrams/crm-etl-warehouse.png"
+                alt="Architecture diagram for CRM ETL and warehouse solution using HubSpot, Airbyte and AWS"
+                loading="lazy"
+              />
+              <figcaption>CRM ETL & Warehouse Architecture</figcaption>
+            </figure>
+          </article>
+
+          <article class="project-card" data-tags="aws">
+            <h3>Real Estate ETL & BI</h3>
+            <p class="stack">
+              DynamoDB, Kinesis, Lambda, S3, Glue, Athena, QuickSight
+            </p>
+            <p>
+              Implemented a near real-time and batch ETL/BI pipeline to support
+              data-driven insights for a housing platform in the Netherlands.
+            </p>
+            <div class="project-subsection">
+              <h4 class="project-subtitle">Impact</h4>
+              <ul>
+                <li>Captured historical JSON and streaming data into S3.</li>
+                <li>
+                  Performed daily cleaning and consolidation using Python + Glue
+                  jobs.
+                </li>
+                <li>
+                  Published curated views for QuickSight dashboards with
+                  timeseries and map visualizations.
+                </li>
+              </ul>
+            </div>
+            <figure class="diagram-card project-subsection">
+              <h4 class="project-subtitle">Architecture Diagram</h4>
+              <img
+                src="assets/diagrams/hospi-housing-etl-bi.png"
+                alt="Architecture diagram for Hospi Housing ETL and BI pipeline on AWS"
+                loading="lazy"
+              />
+              <figcaption>Real Estate ETL/BI Architecture</figcaption>
+            </figure>
+          </article>
+
+          <article class="project-card" data-tags="azure">
+            <h3>Meal Project ETL & BI</h3>
+            <p class="stack">
+              Azure Blob, Function App, Azure SQL, Power BI
+            </p>
+            <p>
+              Created a cloud ETL workflow that processes CSV uploads, loads
+              transformed results into SQL Server, and powers decision-focused
+              Power BI reporting.
+            </p>
+            <div class="project-subsection">
+              <h4 class="project-subtitle">Impact</h4>
+              <ul>
+                <li>
+                  Triggered serverless ingestion and transformation on schedule.
+                </li>
+                <li>Archived processed files and maintained ingestion trace.</li>
+                <li>
+                  Exposed analytics-ready relational tables for BI dashboards.
+                </li>
+              </ul>
+            </div>
+            <figure class="diagram-card project-subsection">
+              <h4 class="project-subtitle">Architecture Diagram</h4>
+              <img
+                src="assets/diagrams/meal-project-etl.png"
+                alt="Architecture diagram for Meal Project ETL solution on Azure"
+                loading="lazy"
+              />
+              <figcaption>Meal Project ETL Architecture</figcaption>
+            </figure>
+          </article>
+
+          <article class="project-card" data-tags="automation">
+            <h3>Amazon ASIN Research Tool</h3>
+            <p class="stack">Python Selenium, SellerApp, OpenAI API</p>
+            <p>
+              Automated large-scale keyword discovery and ranking for product
+              ASINs to improve SEO strategy and reduce manual effort.
+            </p>
+            <div class="project-subsection">
+              <h4 class="project-subtitle">Impact</h4>
+              <ul>
+                <li>
+                  Automated extraction of seed keywords from SellerApp using
+                  Selenium.
+                </li>
+                <li>
+                  Expanded keyword pool through Google Keyword Planner workflows.
+                </li>
+                <li>
+                  Ranked high-value keywords using ChatGPT-powered filtering.
+                </li>
+              </ul>
+            </div>
+            <figure class="diagram-card project-subsection">
+              <h4 class="project-subtitle">Architecture Diagram</h4>
+              <img
+                src="assets/diagrams/amazon-asin-research.png"
+                alt="Workflow diagram for Amazon ASIN Research automation tool"
+                loading="lazy"
+              />
+              <figcaption>Amazon ASIN Research Workflow</figcaption>
+            </figure>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="section">
+        <h2>Top Skills</h2>
+        <div class="skills-group">
+          <h3>Cloud Platforms</h3>
+          <p>AWS (EC2, S3, Lambda, Kinesis, Glue, Athena, QuickSight), Azure</p>
+        </div>
+        <div class="skills-group">
+          <h3>Data Engineering</h3>
+          <p>ETL/ELT, Apache Airflow, Airbyte, DBT, Alembic, Medallion Design</p>
+        </div>
+        <div class="skills-group">
+          <h3>Databases</h3>
+          <p>PostgreSQL, MySQL, MSSQL, MongoDB, DynamoDB, Azure SQL</p>
+        </div>
+        <div class="skills-group">
+          <h3>Orchestration & DevOps</h3>
+          <p>Docker, Kubernetes, GitLab, CI/CD Workflows</p>
+        </div>
+        <div class="skills-group">
+          <h3>BI & Analytics</h3>
+          <p>QuickSight, Power BI, Superset, Looker Studio, Python, SQL</p>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <h2>Contact</h2>
+        <p>Based in Lahore, Pakistan</p>
+        <ul class="contact-list">
+          <li>
+            Email:
+            <a href="mailto:samiullaharshad49@gmail.com"
+              >samiullaharshad49@gmail.com</a
+            >
+          </li>
+          <li>Phone: +923700488208</li>
+          <li>
+            LinkedIn:
+            <a
+              href="https://www.linkedin.com/in/samiullah-arshad-86a14a1a2"
+              target="_blank"
+              rel="noreferrer"
+              >Linkedin@Samiullah Arshad</a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Samiullah Arshad — Data Engineer Portfolio</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
