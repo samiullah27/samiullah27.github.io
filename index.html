@@ -45,17 +45,17 @@
     </header>
 
     <main>
-      <section id="about" class="section">
+      <section id="about" class="section reveal-section">
         <h2>Introduction</h2>
         <p>
           Data Engineer with hands-on experience building scalable ETL pipelines and cloud data platforms on AWS and Azure. I specialize in Apache Airflow, Airbyte, and modern data infrastructure—from data warehouses to lakehouse architectures and BI solutions. I focus on delivering reliable, business-driven data solutions through close collaboration with stakeholders.
         </p>
       </section>
 
-      <section id="experience" class="section">
+      <section id="experience" class="section reveal-section">
         <h2>Experience</h2>
         <div class="timeline">
-          <article class="timeline-item">
+          <article class="timeline-item reveal-item">
             <h3>Data Engineer — Orcion Systems</h3>
             <p class="time">Feb 2026 – Present | Lahore, Pakistan</p>
             <ul>
@@ -73,7 +73,7 @@
               </li>
             </ul>
           </article>
-          <article class="timeline-item">
+          <article class="timeline-item reveal-item">
             <h3>Data Engineer — Expertflow</h3>
             <p class="time">Nov 2024 – Jan 2026 | Pakistan</p>
             <ul>
@@ -87,7 +87,7 @@
               </li>
             </ul>
           </article>
-          <article class="timeline-item">
+          <article class="timeline-item reveal-item">
             <h3>Associate Data Engineer — DOT LABS</h3>
             <p class="time">Nov 2023 – Nov 2024 | Lahore, Pakistan</p>
             <ul>
@@ -100,7 +100,7 @@
               </li>
             </ul>
           </article>
-          <article class="timeline-item">
+          <article class="timeline-item reveal-item">
             <h3>Research Associate — LUMS Energy Institute</h3>
             <p class="time">Feb 2022 – Jan 2023 | Lahore, Pakistan</p>
             <ul>
@@ -117,7 +117,7 @@
         </div>
       </section>
 
-      <section id="projects" class="section">
+      <section id="projects" class="section reveal-section">
         <div class="section-head">
           <h2>Featured Real-World Projects</h2>
           <p>
@@ -345,31 +345,31 @@
         </div>
       </section>
 
-      <section id="skills" class="section">
+      <section id="skills" class="section reveal-section">
         <h2>Top Skills</h2>
-        <div class="skills-group">
+        <div class="skills-group reveal-item">
           <h3>Cloud Platforms</h3>
           <p>AWS (EC2, S3, Lambda, Kinesis, Glue, Athena, QuickSight), Azure</p>
         </div>
-        <div class="skills-group">
+        <div class="skills-group reveal-item">
           <h3>Data Engineering</h3>
           <p>ETL/ELT, Apache Airflow, Airbyte, DBT, Alembic, Medallion Design</p>
         </div>
-        <div class="skills-group">
+        <div class="skills-group reveal-item">
           <h3>Databases</h3>
           <p>PostgreSQL, MySQL, MSSQL, MongoDB, DynamoDB, Azure SQL</p>
         </div>
-        <div class="skills-group">
+        <div class="skills-group reveal-item">
           <h3>Orchestration & DevOps</h3>
           <p>Docker, Kubernetes, GitLab, CI/CD Workflows</p>
         </div>
-        <div class="skills-group">
+        <div class="skills-group reveal-item">
           <h3>BI & Analytics</h3>
           <p>QuickSight, Power BI, Superset, Looker Studio, Python, SQL</p>
         </div>
       </section>
 
-      <section id="contact" class="section">
+      <section id="contact" class="section reveal-section">
         <h2>Contact</h2>
         <p>Based in Lahore, Pakistan</p>
         <ul class="contact-list">
@@ -396,6 +396,11 @@
     <footer class="footer">
       <p>© <span id="year"></span> Samiullah Arshad — Data Engineer Portfolio</p>
     </footer>
+
+    <div class="card-backdrop" id="cardBackdrop"></div>
+    <button type="button" class="lightbox-back" id="lightboxBack" aria-label="Go back">
+      &#8592; Back
+    </button>
 
     <script src="script.js"></script>
   </body>

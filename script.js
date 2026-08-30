@@ -1,6 +1,9 @@
 const buttons = document.querySelectorAll(".filter-btn");
 const cards = document.querySelectorAll(".project-card");
+const diagrams = document.querySelectorAll(".diagram-card");
 const yearNode = document.getElementById("year");
+const backdrop = document.getElementById("cardBackdrop");
+const backBtn = document.getElementById("lightboxBack");
 
 if (yearNode) {
   yearNode.textContent = String(new Date().getFullYear());
@@ -23,4 +26,132 @@ buttons.forEach((button) => {
       card.classList.toggle("is-hidden", !show);
     });
   });
+});
+
+/* Scroll-reveal animation: project cards fade/slide in as they enter view */
+cards.forEach((card) => card.classList.add("reveal"));
+
+const revealObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+cards.forEach((card) => revealObserver.observe(card));
+
+/* Scroll-reveal animation for every section, plus a subtle staggered
+   reveal for their internal items (timeline entries, skills groups, etc.) */
+const sections = document.querySelectorAll(".reveal-section");
+
+const sectionObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      entry.target.classList.add("is-visible");
+
+      const items = entry.target.querySelectorAll(".reveal-item");
+      items.forEach((item, index) => {
+        item.style.transitionDelay = `${Math.min(index, 6) * 90}ms`;
+        item.classList.add("is-visible");
+      });
+
+      observer.unobserve(entry.target);
+    });
+  },
+  { threshold: 0.12 }
+);
+
+sections.forEach((section) => sectionObserver.observe(section));
+
+/* Lightbox: expand a project card or a diagram, blur the rest, allow going back */
+let activeElement = null;
+let activePlaceholder = null;
+
+function closeLightbox() {
+  if (!activeElement) {
+    return;
+  }
+
+  activeElement.classList.remove("is-expanded");
+  if (activePlaceholder) {
+    activePlaceholder.replaceWith(activeElement);
+  }
+
+  backdrop.classList.remove("is-active");
+  backBtn.classList.remove("is-active");
+  document.body.classList.remove("lightbox-open");
+
+  activeElement = null;
+  activePlaceholder = null;
+}
+
+function openLightbox(element) {
+  if (activeElement === element) {
+    return;
+  }
+
+  if (activeElement) {
+    closeLightbox();
+  }
+
+  activePlaceholder = document.createComment("lightbox-placeholder");
+  element.replaceWith(activePlaceholder);
+  document.body.appendChild(element);
+
+  // Force reflow so the pop-in animation replays each time it opens.
+  element.classList.remove("is-expanded");
+  void element.offsetWidth;
+  element.classList.add("is-expanded");
+
+  backdrop.classList.add("is-active");
+  backBtn.classList.add("is-active");
+  document.body.classList.add("lightbox-open");
+
+  activeElement = element;
+}
+
+cards.forEach((card) => {
+  card.addEventListener("click", (event) => {
+    // Ignore clicks on links/buttons inside the card, and clicks that
+    // originated from an architecture diagram (handled separately below).
+    if (event.target.closest("a, button, .diagram-card")) {
+      return;
+    }
+
+    if (card.classList.contains("is-expanded")) {
+      return;
+    }
+
+    openLightbox(card);
+  });
+});
+
+diagrams.forEach((diagram) => {
+  diagram.addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    if (diagram.classList.contains("is-expanded")) {
+      return;
+    }
+
+    openLightbox(diagram);
+  });
+});
+
+backdrop.addEventListener("click", closeLightbox);
+backBtn.addEventListener("click", closeLightbox);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeLightbox();
+  }
 });

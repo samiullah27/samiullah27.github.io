@@ -191,12 +191,242 @@ p {
   border: 1px solid var(--border);
   border-radius: 0.8rem;
   padding: 1rem;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease,
+    opacity 0.6s ease;
 }
 
 .project-card:hover {
   border-color: var(--accent);
   transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Scroll-reveal animation for project cards */
+.project-card.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.project-card.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Generic scroll-reveal used across every section */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- About: fade + gentle scale-up --- */
+#about.reveal-section {
+  transform: scale(0.94);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+#about.reveal-section.is-visible {
+  transform: scale(1);
+}
+
+/* --- Experience: timeline items slide in from alternating sides --- */
+#experience .reveal-item {
+  transform: translateX(-40px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#experience .reveal-item:nth-child(even) {
+  transform: translateX(40px);
+}
+
+#experience .reveal-item.is-visible {
+  transform: translateX(0);
+}
+
+/* --- Projects: heading/intro rises up while cards keep their own pop-in --- */
+#projects.reveal-section {
+  transform: translateY(0);
+  transition: opacity 0.5s ease;
+}
+
+#projects .section-head {
+  opacity: 0;
+  transform: translateY(-18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#projects.reveal-section.is-visible .section-head {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Skills: groups flip/rotate into place --- */
+#skills .reveal-item {
+  transform: rotateX(-35deg) translateY(16px);
+  transform-origin: top center;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#skills.reveal-section {
+  perspective: 800px;
+}
+
+#skills .reveal-item.is-visible {
+  transform: rotateX(0deg) translateY(0);
+}
+
+/* --- Contact: zoom in from center --- */
+#contact.reveal-section {
+  transform: scale(0.85);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#contact.reveal-section.is-visible {
+  transform: scale(1);
+}
+
+/* Hero intro animation on page load */
+.hero-top,
+.hero-actions,
+.top-nav {
+  opacity: 0;
+  animation: heroFadeUp 0.8s ease forwards;
+}
+
+.top-nav {
+  animation-delay: 0.05s;
+}
+
+.hero-top {
+  animation-delay: 0.2s;
+}
+
+.hero-actions {
+  animation-delay: 0.4s;
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-section,
+  .reveal-item,
+  .project-card.reveal,
+  .hero-top,
+  .hero-actions,
+  .top-nav {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Expanded project card ("lightbox" for a project) */
+.project-card.is-expanded {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: min(720px, 92vw);
+  max-height: 86vh;
+  overflow-y: auto;
+  z-index: 55;
+  cursor: default;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+  animation: cardPopIn 0.32s ease forwards;
+}
+
+.project-card.is-expanded:hover {
+  transform: translate(-50%, -50%);
+}
+
+@keyframes cardPopIn {
+  from {
+    transform: translate(-50%, -50%) scale(0.88);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Blurred backdrop shown behind an expanded project card */
+.card-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 4, 20, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 45;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.card-backdrop.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Shared "back" button for closing project/diagram lightboxes */
+.lightbox-back {
+  position: fixed;
+  top: 1.2rem;
+  left: 1.2rem;
+  z-index: 60;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.lightbox-back.is-active {
+  display: inline-flex;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.lightbox-back:hover {
+  border-color: var(--accent);
 }
 
 .project-card h3 {
@@ -231,6 +461,13 @@ p {
   border: 1px solid var(--border);
   border-radius: 0.8rem;
   overflow: hidden;
+  cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.diagram-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
 }
 
 .diagram-card img {
@@ -244,6 +481,29 @@ p {
   color: var(--muted);
   font-size: 0.95rem;
   border-top: 1px solid var(--border);
+}
+
+/* Expanded diagram (image + caption only) */
+.diagram-card.is-expanded {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: min(880px, 92vw);
+  max-height: 88vh;
+  overflow-y: auto;
+  z-index: 55;
+  cursor: default;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+  animation: cardPopIn 0.32s ease forwards;
+}
+
+.diagram-card.is-expanded:hover {
+  transform: translate(-50%, -50%);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+}
+
+body.lightbox-open {
+  overflow: hidden;
 }
 
 .skills-group h3 {
