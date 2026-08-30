@@ -5,9 +5,75 @@ const yearNode = document.getElementById("year");
 const backdrop = document.getElementById("cardBackdrop");
 const backBtn = document.getElementById("lightboxBack");
 
+const menuToggle = document.getElementById("menuToggle");
+const sideNav = document.getElementById("sideNav");
+const sideNavClose = document.getElementById("sideNavClose");
+const sidenavBackdrop = document.getElementById("sidenavBackdrop");
+const sideNavLinks = document.querySelectorAll(".side-nav a");
+
 if (yearNode) {
   yearNode.textContent = String(new Date().getFullYear());
 }
+
+/* Side navigation: open/close via hamburger button, backdrop, close button,
+   Escape key, and clicking a link. */
+function openSideNav() {
+  sideNav.classList.add("is-open");
+  sidenavBackdrop.classList.add("is-active");
+  menuToggle.setAttribute("aria-expanded", "true");
+  document.body.classList.add("lightbox-open");
+}
+
+function closeSideNav() {
+  sideNav.classList.remove("is-open");
+  sidenavBackdrop.classList.remove("is-active");
+  menuToggle.setAttribute("aria-expanded", "false");
+  document.body.classList.remove("lightbox-open");
+}
+
+menuToggle.addEventListener("click", () => {
+  if (sideNav.classList.contains("is-open")) {
+    closeSideNav();
+  } else {
+    openSideNav();
+  }
+});
+
+sideNavClose.addEventListener("click", closeSideNav);
+sidenavBackdrop.addEventListener("click", closeSideNav);
+
+sideNavLinks.forEach((link) => {
+  link.addEventListener("click", closeSideNav);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && sideNav.classList.contains("is-open")) {
+    closeSideNav();
+  }
+});
+
+/* Highlight the current section's link in the side navigation while scrolling */
+const navSections = document.querySelectorAll("main .section[id]");
+
+const navObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      sideNavLinks.forEach((link) => {
+        link.classList.toggle(
+          "active",
+          link.getAttribute("href") === `#${entry.target.id}`
+        );
+      });
+    });
+  },
+  { rootMargin: "-45% 0px -50% 0px" }
+);
+
+navSections.forEach((section) => navObserver.observe(section));
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {

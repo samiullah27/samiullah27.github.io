@@ -31,18 +31,115 @@ a {
   border-bottom: 1px solid var(--border);
 }
 
-.top-nav {
-  max-width: 1024px;
-  margin: 0 auto;
+/* Hamburger button that opens the side navigation */
+.menu-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 70;
+  width: 46px;
+  height: 46px;
+  border-radius: 0.6rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
 
-.top-nav a {
+.menu-toggle span {
+  width: 20px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Backdrop shown behind the open side navigation */
+.sidenav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 4, 20, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 65;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidenav-backdrop.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Side navigation drawer */
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(280px, 80vw);
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  z-index: 68;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 4.5rem 1.2rem 1.5rem;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.4);
+}
+
+.side-nav.is-open {
+  transform: translateX(0);
+}
+
+.side-nav a {
   text-decoration: none;
   color: var(--muted);
   font-weight: 600;
+  padding: 0.7rem 0.6rem;
+  border-radius: 0.5rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.side-nav a:hover,
+.side-nav a.active {
+  background: var(--velvet);
+  color: var(--text);
+}
+
+.side-nav-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
 .hero-content {
@@ -307,12 +404,12 @@ p {
 /* Hero intro animation on page load */
 .hero-top,
 .hero-actions,
-.top-nav {
+.menu-toggle {
   opacity: 0;
   animation: heroFadeUp 0.8s ease forwards;
 }
 
-.top-nav {
+.menu-toggle {
   animation-delay: 0.05s;
 }
 
@@ -341,7 +438,8 @@ p {
   .project-card.reveal,
   .hero-top,
   .hero-actions,
-  .top-nav {
+  .menu-toggle,
+  .side-nav {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;

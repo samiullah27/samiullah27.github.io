@@ -11,14 +11,24 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="sideNav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="sidenav-backdrop" id="sidenavBackdrop"></div>
+
+    <nav class="side-nav" id="sideNav" aria-label="Section navigation">
+      <button type="button" class="side-nav-close" id="sideNavClose" aria-label="Close navigation menu">&times;</button>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
     <header class="hero">
-      <nav class="top-nav">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
       <div class="hero-content">
         <div class="hero-top">
           <img
