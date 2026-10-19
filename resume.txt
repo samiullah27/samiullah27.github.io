@@ -1,0 +1,63 @@
+SAMIULLAH ARSHAD
+DATA ENGINEER
+Lahore, Pakistan | +92 370 048 8208 | samiullaharshad49@gmail.com
+LinkedIn: https://www.linkedin.com/in/samiullah-arshad-86a14a1a2
+
+PROFESSIONAL SUMMARY
+Data Engineer with experience building scalable extract, transform, load (ETL) and extract, load, transform (ELT) pipelines and cloud data platforms on AWS and Azure. Hands-on with Apache Airflow, Airbyte, dbt, Python, SQL, data warehouses, lakehouse architectures, and business intelligence (BI). Focused on reliable data solutions and collaboration with stakeholders.
+
+PROFESSIONAL EXPERIENCE
+
+Data Engineer | Orcion Systems | Lahore, Pakistan | Feb 2026 - Present
+- Architect AWS-based ETL and ELT pipelines for a multi-tenant platform.
+- Operate Medallion architecture workflows for data ingestion, validation, and transformation.
+- Enable validated datasets for Amazon QuickSight reporting and data quality assurance.
+
+Data Engineer | Expertflow | Pakistan | Nov 2024 - Jan 2026
+- Built scalable ETL pipelines on an in-house data platform using Apache Airflow, dbt, and Alembic.
+- Added platform features to onboard multiple internal product teams.
+
+Associate Data Engineer | DOT LABS | Lahore, Pakistan | Nov 2023 - Nov 2024
+- Delivered cloud-based ETL and BI solutions on AWS and Azure.
+- Led project delivery, stakeholder communication, and team mentorship.
+
+Research Associate | LUMS Energy Institute | Lahore, Pakistan | Feb 2022 - Jan 2023
+- Contributed to energy monitoring and control applications using R and R Shiny.
+- Supported research delivery with code review, debugging, and data-driven reporting.
+
+SELECTED PROJECTS
+
+Data Platform (On-Prem)
+Technologies: Apache Airflow, Docker, Kubernetes, Python, SQL, dbt, Alembic
+- Designed and scaled a Medallion architecture platform integrating structured and semi-structured sources with batch orchestration.
+- Unified MySQL, Microsoft SQL Server, PostgreSQL, MongoDB, and API data pipelines.
+- Managed schema evolution through version-controlled migrations and deployed containerized workflows on Kubernetes.
+
+DataExtend (DEX) Multi-Tenant AWS Data Platform
+Technologies: AWS Batch, AWS Glue, Apache Spark, Amazon QuickSight, Python, SQL
+- Built a multi-tenant AWS data platform for secure ingestion, large-scale processing, and client-specific data snapshots.
+- Processed datasets with AWS Glue and Spark; delivered dependable snapshots to client environments.
+- Used QuickSight dashboards to monitor data quality and workflow health.
+
+CRM ETL and Warehouse Solution
+Technologies: Flask, Airbyte OSS, AWS EC2, Amazon S3, AWS Glue, Amazon Athena
+- Built a multi-user HubSpot-to-AWS ETL system with OAuth 2.0 extraction, user-isolated data lake storage, and query-ready warehousing.
+- Automated Airbyte connector setup and transformed Parquet datasets with AWS Glue for querying in Athena.
+
+Real Estate ETL and BI Pipeline
+Technologies: Amazon DynamoDB, Amazon Kinesis, AWS Lambda, Amazon S3, AWS Glue, Amazon Athena, Amazon QuickSight
+- Implemented near-real-time and batch data pipelines for a Netherlands housing platform.
+- Processed historical and streaming JSON data and published curated views for dashboard reporting.
+
+Meal Project ETL and BI
+Technologies: Azure Blob Storage, Azure Functions, Azure SQL, Power BI
+- Created a cloud ETL workflow for CSV uploads, transformation, and SQL Server loading.
+- Archived processed files and exposed analytics-ready relational tables for reporting.
+
+TECHNICAL SKILLS
+Cloud: Amazon Web Services (AWS), Microsoft Azure
+Data Engineering: ETL, ELT, Apache Airflow, Airbyte, dbt, Alembic, Medallion architecture, Apache Spark
+Programming and Querying: Python, SQL, R
+Databases and Warehousing: PostgreSQL, MySQL, Microsoft SQL Server (MSSQL), MongoDB, Amazon DynamoDB, Azure SQL, Amazon Athena
+Orchestration and DevOps: Docker, Kubernetes, GitLab, continuous integration and delivery (CI/CD)
+Business Intelligence: Amazon QuickSight, Power BI, Superset, Looker Studio
